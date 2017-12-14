@@ -29,13 +29,21 @@ namespace Dutch_Treat
             {
                 cfg.UseSqlServer(_configuration.GetConnectionString("DuchConnectionString"));
             });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDefaultFiles();
+            //app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseMvc(cfg =>
+            {
+                cfg.MapRoute("Default",
+                    "{controller}/{action}/{id?}",
+                    new { Controller = "App", Action = "Index" });
+            });
         }
     }
 }
