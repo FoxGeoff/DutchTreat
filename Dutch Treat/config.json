@@ -1,0 +1,8 @@
+﻿{
+  "Colors": {
+    "Favorite": "blue"
+  },
+  "ConnectionStrings": {
+    "DuchConnectionString": "server=(localdb)\\ProjectsV13;Database=DutchDb;Integrated Security=true;MultipleActiveResultSets=true;"
+  }
+}
