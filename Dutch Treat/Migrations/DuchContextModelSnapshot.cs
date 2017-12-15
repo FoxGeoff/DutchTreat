@@ -10,7 +10,7 @@ using System;
 
 namespace DutchTreat.Migrations
 {
-    [DbContext(typeof(DuchContext))]
+    [DbContext(typeof(DutchContext))]
     partial class DuchContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

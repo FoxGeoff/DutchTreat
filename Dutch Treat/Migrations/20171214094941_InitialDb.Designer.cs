@@ -10,7 +10,7 @@ using System;
 
 namespace DutchTreat.Migrations
 {
-    [DbContext(typeof(DuchContext))]
+    [DbContext(typeof(DutchContext))]
     [Migration("20171214094941_InitialDb")]
     partial class InitialDb
     {

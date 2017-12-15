@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dutch_Treat.Data
 {
-    public class DuchContext : DbContext
+    public class DutchContext : DbContext
     {
-        public DuchContext(DbContextOptions<DuchContext> options):base(options)
+        public DutchContext(DbContextOptions<DutchContext> options) : base(options)
         {
 
         }
 
-        DbSet<Product> Products { get; set; }
-        DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

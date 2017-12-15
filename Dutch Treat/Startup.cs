@@ -25,12 +25,13 @@ namespace Dutch_Treat
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DuchContext>(cfg =>
+            services.AddDbContext<DutchContext>(cfg =>
             {
                 cfg.UseSqlServer(_configuration.GetConnectionString("DuchConnectionString"));
             });
 
             services.AddMvc();
+            services.AddTransient<DutchSeeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,16 @@ namespace Dutch_Treat
                     "{controller}/{action}/{id?}",
                     new { Controller = "App", Action = "Index" });
             });
+
+            if (env.IsDevelopment())
+            {
+                //Seed dabase on web service startup
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var seeder = scope.ServiceProvider.GetService<DutchSeeder>();
+                    seeder.Seed();
+                }
+            }
         }
     }
 }
